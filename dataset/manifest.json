@@ -1,0 +1,46 @@
+[
+  {
+    "dataset": "logic2text",
+    "split": "train",
+    "count": 8566,
+    "fields": [
+      "logic_str",
+      "sent"
+    ],
+    "sha256": "f8955595dfd8f80f9421f508e46badb6b30442bac6cd49ba88e88d47d9050aeb",
+    "source_sha256": "74f3b1a5732bf20d7702ef44ee92ac17bf74911e3e9ba860bce7a4ee798edf58"
+  },
+  {
+    "dataset": "logic2text",
+    "split": "test",
+    "count": 1092,
+    "fields": [
+      "logic_str",
+      "sent"
+    ],
+    "sha256": "25c2f144b9381f9516ac13254d7cdc973803c34f63d3c8bcdaff30065e1dab90",
+    "source_sha256": "b5797d977d85943065935c4dfd45b32cd1ed8943690cb7a7622f5f523cdf921e"
+  },
+  {
+    "dataset": "spider",
+    "split": "train",
+    "count": 5600,
+    "fields": [
+      "query",
+      "question"
+    ],
+    "sha256": "c2ad2099b21ce70ac8d3c43c563beda80dbee69647f5d5242098de339e53a3c2",
+    "source_sha256": "9fdffbafd5a4aba9af80cd7163ef37e252b68019e022938546bd5f58d2406efe"
+  },
+  {
+    "dataset": "spider",
+    "split": "test",
+    "count": 1034,
+    "fields": [
+      "query",
+      "question"
+    ],
+    "sha256": "8ea4566106c944044ffc125dda57f567f42d95c8274c0383365a6aa813398dfd",
+    "source_sha256": "30d64a3fccde493226df79687aed9e4a1c0129525baf44f29c0573d914d758a4"
+  }
+]

@@ -1,0 +1,7 @@
+# Combined dependencies for inference, demo clustering, and BLEC.
+torch
+numpy
+sentence-transformers
+scikit-learn
+pandas
+nltk
