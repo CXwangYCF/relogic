@@ -12,3 +12,5 @@
 4. 保留当前工作区的本地解码器及 BLEC 关键词大小写修改。新增快捷脚本、使用文档、校验清单和集成检查。
 
 不包含个人评测方案文档及历史模型输出。
+
+- 编码器： https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2 ，使用本地 snapshot `c9745ed1d9f207416be6d2e6f8de32d1f16199bf`，保留模型卡及 Apache-2.0 许可证，只携带 Safetensors 权重与运行配置。权重直接取自官方固定版本，使用 SHA-256 核对与本地原始模型一致。

@@ -10,7 +10,7 @@ import os
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Zero-shot-CoT")
     local_encoder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models",
-                                 "models--sentence-transformers--all-MiniLM-L6-v2")
+                                 "all-MiniLM-L6-v2")
     revision_file = os.path.join(local_encoder, "refs", "main")
     if os.path.isfile(revision_file):
         with open(revision_file, encoding="utf-8") as f:

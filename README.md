@@ -32,13 +32,13 @@ export LOCAL_MODEL_NAME='你的模型名称'
 export LOCAL_MODEL_BASE_URL='http://localhost:11434/v1'
 ```
 
-`run_demo.py` 使用 `all-MiniLM-L6-v2` 编码器。首次运行会下载编码器；离线运行请提前准备完整的 sentence-transformers 模型目录，并设置：
+`run_demo.py` 默认使用仓库内的 `models/all-MiniLM-L6-v2` 编码器，不需要首次运行下载。包含一套原始 `model.safetensors` 权重、分词器和配置，共约 91.6 MB；未包含重复的 PyTorch BIN 权重。下载仓库时请保留该目录。需要换用其他完整的 sentence-transformers 模型目录时设置：
 
 ```bash
-export ENCODER='/你的路径/all-MiniLM-L6-v2'
+export ENCODER='/你的路径/编码器模型目录'
 ```
 
-本包不包含大模型、编码器权重或虚拟环境。推理沿用 PyTorch DataLoader，示例构建使用句向量和 KMeans，因此保留 `torch`、`numpy`、`sentence-transformers`、`scikit-learn`；BLEC 还需要 `pandas` 和 `nltk`。当前固定测试模板的 Spider 评价不需要下载 NLTK 语料。可选绘图需要额外安装 `matplotlib`，默认不绘图。已验证环境的直接依赖版本记录在 `environment-tested.json`，安装文件不锁定 CUDA 构建。
+本包不包含 Qwen 大模型权重或虚拟环境。推理沿用 PyTorch DataLoader，示例构建使用句向量和 KMeans，因此保留 `torch`、`numpy`、`sentence-transformers`、`scikit-learn`；BLEC 还需要 `pandas` 和 `nltk`。当前固定测试模板的 Spider 评价不需要下载 NLTK 语料。可选绘图需要额外安装 `matplotlib`，默认不绘图。已验证环境的直接依赖版本记录在 `environment-tested.json`，安装文件不锁定 CUDA 构建。
 
 ## 2. 最短运行流程
 
@@ -171,11 +171,12 @@ BLEC-main/BLEC/               两个任务的 BLEC 实现
 BLEC-main/tests/              Spider 测试模板与关键词大小写测试
 dataset/relogic_data/         精简后的训练集、测试集
 dataset/manifest.json         数据来源校验信息
-licenses/                    原 Auto-CoT 许可证与声明
+models/all-MiniLM-L6-v2/      随仓库提供的本地编码器
+licenses/                    上游许可证与声明
 THIRD_PARTY.md                上游来源与本包修改说明
 ```
 
-未包含其他任务数据、远程付费模型后端、历史实验、日志、缓存或密钥。原入口文件中保留了原有其他任务分支，但本包只支持表中的两个数据集，不包含其他任务依赖与数据。
+未包含其他任务数据、远程付费模型后端、历史实验、日志、冗余缓存或密钥。原入口文件中保留了原有其他任务分支，但本包只支持表中的两个数据集，不包含其他任务依赖与数据。
 
 ## 6. 验证
 
@@ -185,4 +186,4 @@ THIRD_PARTY.md                上游来源与本包修改说明
 python3 tests/smoke_test.py
 ```
 
-此检查使用模拟模型验证两个任务的 Zero-shot-CoT、Auto-CoT、训练输入覆盖与 BLEC 流程，不代表真实模型效果，也不下载编码器。真实 `run_demo.py` 还需要前述编码器。
+此检查使用模拟模型验证两个任务的 Zero-shot-CoT、Auto-CoT、训练输入覆盖与 BLEC 流程，不代表真实模型效果，也不下载编码器。真实 `run_demo.py` 默认读取随仓库提供的编码器。
