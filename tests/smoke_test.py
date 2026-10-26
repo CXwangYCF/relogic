@@ -42,10 +42,10 @@ def main():
     for row in manifest:
         path = ROOT/'dataset/relogic_data'/row['dataset']/'raw'/f"{row['split']}.json"
         assert hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256']
-        assert len(json.loads(path.read_text())) == row['count']
+        assert len(json.loads(path.read_text(encoding='utf-8'))) == row['count']
 
-    templates = json.loads((ROOT/'BLEC-main/tests/template_to_names_test.json').read_text())[0]
-    spider = json.loads((ROOT/'dataset/relogic_data/spider/raw/test.json').read_text())
+    templates = json.loads((ROOT/'BLEC-main/tests/template_to_names_test.json').read_text(encoding='utf-8'))[0]
+    spider = json.loads((ROOT/'dataset/relogic_data/spider/raw/test.json').read_text(encoding='utf-8'))
     assert all(r['query'] in templates for r in spider), 'Incomplete Spider test templates'
 
     server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)

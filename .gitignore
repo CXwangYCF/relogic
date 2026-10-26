@@ -11,4 +11,8 @@ output/
 experiment/
 log/
 demos/
+task_output/
+artifacts/autocot/*/*/candidates/
+artifacts/autocot/*/*/demo.json
+artifacts/autocot/*/*/manifest.json
 *.zip

@@ -72,3 +72,7 @@ class LocalDecoder:
                 "(or --max_length_direct for direct answers)."
             )
         return content, choice.get("finish_reason")
+
+    def list_models(self):
+        """Return model ids advertised by the configured local endpoint."""
+        return [row["id"] for row in self._request("models").get("data", [])]
